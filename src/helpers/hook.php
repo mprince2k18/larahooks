@@ -16,7 +16,7 @@ if (!function_exists('hook_filter')) {
     }
 }
 
-function hookr()
+function hook()
 {
     return $hookr = new \Mprince\Larahooks\Hook;
 }

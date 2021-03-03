@@ -1,27 +1,20 @@
-# PHP hookr
+[![Latest Stable Version](https://poser.pugx.org/mprince/larahooks/v/stable)](https://packagist.org/packages/mprince/larahooks)
+[![Total Downloads](https://poser.pugx.org/mprince/larahooks/downloads)](https://packagist.org/packages/mprince/larahooks)
+[![Latest Unstable Version](https://poser.pugx.org/mprince/larahooks/v/unstable)](https://packagist.org/packages/mprince/larahooks) 
+[![License](https://poser.pugx.org/mprince/larahooks/license)](https://packagist.org/packages/mprince/larahooks)
 
-A PHP package for action and filter hook. Its helps to you fire any event with your desire action. Its a similar service as WP action and filter.
+# Larakooks
+
+A Laravel 8 package for action and filter hook. Its helps to you fire any event with your desire action. Its a similar service as WP action and filter.
+
+Inspired from [nahid](https://github.com/nahid/hookr)
   
 ## Installation
 
 Write these command from you terminal.
 
 ```shell
-composer require nahid/hookr
-```
-
-## Laravel Configuration
-
-After complete installation go to `config/app.php` and add this line in providers section
-
-```php
-Nahid\Hookr\HookrServiceProvider::class,
-```
-
-and add this line in aliases section
-
-```php
-'Hook'  =>  Nahid\Hookr\Facades\Hook::class,
+composer require mprince/larahooks
 ```
 
 Thats all
@@ -50,24 +43,24 @@ so lets see.
       </div>
 
       <button type="submit" class="btn btn-default">Publish</button>
-      {{hook_action('buttons')}}
+      {{do_action('buttons')}}
   </form>
   ```
   
   
   ![Demo](http://i.imgur.com/xqN1brq.png "demo")
   
-  See, here we use `hook_action()` helper function which is register as named `buttons`
+  See, here we use `do_action()` helper function which is register as named `buttons`
   So if others developer is want to add more buttons with this form they will do this
   
   ```php
-  use Nahid\Hookr\Facades\Hook;
+  use Mprince\Larahooks\Facades\Hook;
   
   class BlogController extends Controller
   {
         public function getWritePost()
         {
-            Hook::bindAction('buttons', function() {
+            hook()->bindAction('buttons', function() {
                 echo ' <button class="btn btn-info">Draft</button>';
             }, 2);
             
@@ -82,12 +75,12 @@ so lets see.
 
   ![Demo](http://i.imgur.com/Udy1TkG.png "demo")
 
-  You can also bind multiple action with this hook. Hookr also support filter. Remind this when you bind multiple filter in a hook then every filter get data from previous filters return data. Suppose you want to add a filter hook in a blog view section.
+  You can also bind multiple action with this hook. LaraHooks also support filter. Remind this when you bind multiple filter in a hook then every filter get data from previous filters return data. Suppose you want to add a filter hook in a blog view section.
 
 ```
   <h1>{{$blog->title}}</h1>
   <p>
-  {{hook_filter('posts', $blog->content)}}
+  {{do_filter('posts', $blog->content)}}
   </p>
 ```
 
@@ -95,13 +88,13 @@ So we register a filter as 'posts'. Now another developer wants to support markd
 
 
  ```php
-  use Nahid\Hookr\Facades\Hook;
+  use Mprince\Larahooks\Facades\Hook;
   
   class BlogController extends Controller
   {
         public function getPosts()
         {
-            Hook::bindFilter('posts', function($data) {
+            hook()->bindFilter('posts', function($data) {
                 return parse_markdown($data);
             }, 2);
             
@@ -115,17 +108,17 @@ So we register a filter as 'posts'. Now another developer wants to support markd
   so if you want to bind multiple data then
 
    ```php
-  use Nahid\Hookr\Facades\Hook;
+  use Mprince\Larahooks\Facades\Hook;
   
   class BlogController extends Controller
   {
         public function getPosts()
         {
-            Hook::bindFilter('posts', function($data) {
+            hook()->bindFilter('posts', function($data) {
                 return parse_markdown($data);
             }, 2);
 
-            Hook::bindFilter('posts', function($data) {
+            hook()->bindFilter('posts', function($data) {
                 return parse_bbcode($data);
             }, 3);
             

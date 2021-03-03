@@ -3,7 +3,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/mprince/larahooks/v/unstable)](https://packagist.org/packages/mprince/larahooks) 
 [![License](https://poser.pugx.org/mprince/larahooks/license)](https://packagist.org/packages/mprince/larahooks)
 
-# Larakooks
+# Larahooks
 
 A Laravel 8 package for action and filter hook. Its helps to you fire any event with your desire action. Its a similar service as WP action and filter.
 

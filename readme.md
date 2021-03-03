@@ -107,7 +107,7 @@ So we register a filter as 'posts'. Now another developer wants to support markd
 
   so if you want to bind multiple data then
 
-   ```php
+```php
   use Mprince\Larahooks\Facades\Hook;
   
   class BlogController extends Controller
@@ -133,7 +133,7 @@ So we register a filter as 'posts'. Now another developer wants to support markd
 
   You can show a blade file through `bindAction()` and `bindFilter()`
 
-    ```php
+```php
   use Mprince\Larahooks\Facades\Hook;
   
   class BlogController extends Controller
@@ -151,7 +151,7 @@ So we register a filter as 'posts'. Now another developer wants to support markd
 
   ## Compacting Data
 
-    ```php
+```php
   use Mprince\Larahooks\Facades\Hook;
   use App\Models\User;
   

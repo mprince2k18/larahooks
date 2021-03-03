@@ -128,3 +128,43 @@ So we register a filter as 'posts'. Now another developer wants to support markd
   ```
 
   Now then given data is parse by markdown and bbcode. See, here is second param for `bindFilter()` is a priority for binding. Both `bindAction()` and `bindFilter()` has this feature.
+
+  ## Blade View
+
+  You can show a blade file through `bindAction()` and `bindFilter()`
+
+    ```php
+  use Mprince\Larahooks\Facades\Hook;
+  
+  class BlogController extends Controller
+  {
+        public function index()
+        {
+            hook()->bindFilter('posts', function($data) {
+                return view('index');
+            }, 2);
+            
+            return view('post');
+       }
+  }
+  ```
+
+  ## Compacting Data
+
+    ```php
+  use Mprince\Larahooks\Facades\Hook;
+  use App\Models\User;
+  
+  class BlogController extends Controller
+  {
+        public function index()
+        {
+            hook()->bindFilter('posts', function($data) {
+                $user = User::all();
+                return view('index', compact('user'));
+            }, 1);
+            
+            return view('post');
+       }
+  }
+  ```

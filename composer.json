@@ -1,12 +1,17 @@
 {
     "name": "mprince/larahooks",
-    "description": "laravel hook system for binding any service in a action",
+    "description": "laravel hook system for binding any service in a action and filter",
+    "keywords": ["hooks", "phphooks", "laravelhook", "actionfilter"],
     "type": "library",
     "require": {
         "php": ">=5.6"
     },
     "license": "MIT",
     "authors": [
+        {
+            "name": "Nahid Bin Azhar",
+            "email": "nahid.dns@gmail.com"
+        },
         {
             "name": "Mohammad Prince",
             "email": "mprince2k16@gmail.com"

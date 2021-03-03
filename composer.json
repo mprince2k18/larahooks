@@ -1,0 +1,24 @@
+{
+    "name": "mprince/larahooks",
+    "description": "laravel hook system for binding any service in a action",
+    "type": "library",
+    "require": {
+        "php": ">=5.6"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohammad Prince",
+            "email": "mprince2k16@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Mprince\\Larahooks\\": "src/"
+        },
+        "files": [
+            "src/helpers/hook.php"
+        ]
+    }
+}

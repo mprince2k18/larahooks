@@ -80,7 +80,7 @@ so lets see.
 ```
   <h1>{{$blog->title}}</h1>
   <p>
-  {{do_filter('posts', $blog->content)}}
+  {{apply_filters('posts', $blog->content)}}
   </p>
 ```
 
